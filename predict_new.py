@@ -2,25 +2,25 @@ import pandas as pd
 import joblib
 
 # Load models
-clf = joblib.load("method_model.pkl")
-reg = joblib.load("energy_model.pkl")
-le = joblib.load("label_encoder.pkl")
-features = joblib.load("feature_columns.pkl")
+clf = joblib.load("models/method_model.pkl")
+reg = joblib.load("models/energy_model.pkl")
+le = joblib.load("models/label_encoder.pkl")
+features = joblib.load("models/feature_columns.pkl")
 
 # -----------------------------
 # INPUT
 # -----------------------------
 
 input_data = {
-    "moisture_content_pct": 9.8,
-    "HHV_MJ_kg": 16.2,
-    "carbon_content_pct": 46.1,
-    "ash_content_pct": 7.4,
-    "volatile_matter_pct": 77.3,
-    "fixed_carbon_pct": 15.3,
-    "waste_category": "Paper"
+    "moisture_content_pct": 52.6,
+    "HHV_MJ_kg": 6.9,
+    "carbon_content_pct": 29.4,
+    "ash_content_pct": 21.3,
+    "volatile_matter_pct": 51.8,
+    "fixed_carbon_pct": 26.9,
+    "waste_category": "MSW"
 }
-volume = 3500  # kg (daily paper waste from a commercial/office complex)
+volume = 12000
 
 # -----------------------------
 # Convert to DataFrame
