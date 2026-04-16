@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Load raw dataset
-df = pd.read_csv("waste_to_energy_dataset.csv")
+df = pd.read_csv("dataset/waste_to_energy_dataset.csv")
 
 # Drop unnecessary columns
 df = df.drop(columns=["material_type"], errors='ignore')
@@ -16,6 +16,6 @@ df.drop(columns=["recommended_conversion_method"], inplace=True)
 df.dropna(inplace=True)
 
 # Save cleaned dataset
-df.to_csv("cleaned_dataset.csv", index=False)
+df.to_csv("dataset/cleaned_dataset.csv", index=False)
 
 print("✅ Data cleaned and saved as cleaned_dataset.csv")

@@ -1,0 +1,50 @@
+import pandas as pd
+import numpy as np
+
+# Load processed dataset
+df = pd.read_csv("dataset/processed_waste_dataset.csv")
+
+# Number of times to expand
+multiplier = 20  # 258 × 20 ≈ 5160 rows
+
+expanded_data = []
+
+for _ in range(multiplier):
+    temp = df.copy()
+
+    # -----------------------------
+    # Add realistic variation (noise)
+    # -----------------------------
+    
+    # Volume variation ±20%
+    temp["volume"] = temp["volume"] * np.random.uniform(0.8, 1.2, len(temp))
+    
+    # Energy variation ±10%
+    temp["energy_per_kg"] = temp["energy_per_kg"] * np.random.uniform(0.9, 1.1, len(temp))
+    
+    # Emission variation ±10%
+    temp["emission_per_kg"] = temp["emission_per_kg"] * np.random.uniform(0.9, 1.1, len(temp))
+
+    # -----------------------------
+    # Recalculate dependent values
+    # -----------------------------
+    temp["total_energy"] = temp["volume"] * temp["energy_per_kg"]
+    temp["total_emission"] = temp["volume"] * temp["emission_per_kg"]
+
+    temp["efficiency"] = (
+        temp["total_energy"] / (temp["total_energy"] + temp["total_emission"])
+    ) * 100
+
+    expanded_data.append(temp)
+
+# Combine all
+df_expanded = pd.concat(expanded_data, ignore_index=True)
+
+# Shuffle dataset
+df_expanded = df_expanded.sample(frac=1).reset_index(drop=True)
+
+# Save
+df_expanded.to_csv("dataset/expanded_waste_dataset.csv", index=False)
+
+print("✅ Dataset expanded successfully!")
+print("New size:", len(df_expanded))

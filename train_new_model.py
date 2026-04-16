@@ -10,7 +10,7 @@ from sklearn.metrics import accuracy_score, classification_report, mean_absolute
 # LOAD DATA
 # ============================
 
-df = pd.read_csv("cleaned_dataset.csv")
+df = pd.read_csv("dataset/cleaned_dataset.csv")
 
 # ----------------------------
 # HANDLE WASTE CATEGORY
@@ -113,9 +113,9 @@ print("R2 Score:", r2_score(y_test_r, y_pred_r))
 # SAVE MODELS
 # ============================
 
-joblib.dump(clf, "method_model.pkl")
-joblib.dump(reg, "energy_model.pkl")
-joblib.dump(le, "label_encoder.pkl")
-joblib.dump(features, "feature_columns.pkl")
+joblib.dump(clf, "models/method_model.pkl")
+joblib.dump(reg, "models/energy_model.pkl")
+joblib.dump(le, "models/label_encoder.pkl")
+joblib.dump(features, "models/feature_columns.pkl")
 
 print("\n✅ Models saved successfully!")

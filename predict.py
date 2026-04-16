@@ -5,10 +5,10 @@ import joblib
 # LOAD MODELS
 # ============================
 
-clf = joblib.load("method_model.pkl")
-reg = joblib.load("energy_model.pkl")
-le = joblib.load("label_encoder.pkl")
-features = joblib.load("feature_columns.pkl")
+clf = joblib.load("models/method_model.pkl")
+reg = joblib.load("models/energy_model.pkl")
+le = joblib.load("models/label_encoder.pkl")
+features = joblib.load("models/feature_columns.pkl")
 
 # ============================
 # INPUT (REAL TEST CASE)

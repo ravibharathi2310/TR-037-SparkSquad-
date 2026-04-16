@@ -123,7 +123,7 @@ df = pd.DataFrame(data, columns=[
 # -----------------------------
 # 7. Save dataset
 # -----------------------------
-df.to_csv("waste_to_energy_10000.csv", index=False)
+df.to_csv("dataset/waste_to_energy_10000.csv", index=False)
 
 # -----------------------------
 # 8. Output preview

@@ -10,7 +10,7 @@ from sklearn.metrics import mean_absolute_error, r2_score, accuracy_score
 # -----------------------------
 # 1. Load Dataset
 # -----------------------------
-df = pd.read_csv("waste_to_energy_10000.csv")
+df = pd.read_csv("dataset/waste_to_energy_10000.csv")
 
 print("📊 Dataset Loaded")
 print(df.head())
@@ -129,11 +129,11 @@ print(f"Efficiency: {round(efficiency, 2)} %")
 # -----------------------------
 # 10. Save Models & Encoders
 # -----------------------------
-joblib.dump(energy_model, "energy_model.pkl")
-joblib.dump(method_model, "method_model.pkl")
-joblib.dump(emission_model, "emission_model.pkl")
+joblib.dump(energy_model, "models/energy_model.pkl")
+joblib.dump(method_model, "models/method_model.pkl")
+joblib.dump(emission_model, "models/emission_model.pkl")
 
-joblib.dump(le_waste, "waste_encoder.pkl")
-joblib.dump(le_method, "method_encoder.pkl")
+joblib.dump(le_waste, "models/waste_encoder.pkl")
+joblib.dump(le_method, "models/method_encoder.pkl")
 
 print("\nAll models saved successfully!")
