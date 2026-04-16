@@ -1,0 +1,6 @@
+waste_to_energy_10k.csv
+validated_waste_data.csv
+clean_waste_to_energy_data.csv
+energy_regression_model.pkl
+method_classification_model.pkl
+waste_to_energy_10000.csv
