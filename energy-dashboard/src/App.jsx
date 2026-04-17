@@ -43,7 +43,8 @@ function App() {
 
     setLoading(true);
     try {
-      const res = await fetch('https://huggingface.co/spaces/ravi2310/energy-ai-backend/predict', {
+      // Changed to the direct .hf.space API URL
+      const res = await fetch('https://ravi2310-energy-ai-backend.hf.space/predict', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
@@ -52,7 +53,8 @@ function App() {
       setResult(data);
     } catch (error) {
       console.error("Backend Error:", error);
-      alert("Server connection failed. Ensure FastAPI is running on port 8000.");
+      // Updated the alert message so it makes sense in the cloud!
+      alert("Cloud Server connection failed. Ensure Hugging Face backend is awake.");
     } finally {
       setLoading(false);
     }
