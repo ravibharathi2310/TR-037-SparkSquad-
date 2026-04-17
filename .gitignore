@@ -9,3 +9,5 @@ frontend/
 app.py
 models/energy_regression_model.pkl
 models/method_classification_model.pkl
+backend/
+energy-ai-backend/

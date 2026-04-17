@@ -6,10 +6,13 @@ import joblib
 
 app = FastAPI()
 
-# IMPORTANT: This allows your React app (on port 5173) to talk to this API
+# Add this block right after creating the app instance
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    # Replace the Vercel URL with your actual live Vercel URL once you have it
+    # IMPORTANT: Do not include a trailing slash (/) at the end of the URL!
+    allow_origins=["*"], 
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -77,5 +80,5 @@ async def predict(data: WasteInput):
 
 if __name__ == "__main__":
     import uvicorn
-    print("🚀 Starting Waste-to-Energy API Server...")
-    uvicorn.run(app, host="127.0.0.1", port=8000)
+    print("🚀 Starting Waste-to-Energy API Server on Cloud...")
+    uvicorn.run(app, host="0.0.0.0", port=7860)
