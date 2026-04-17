@@ -77,14 +77,15 @@ function App() {
           <h2 className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4 px-1">Quick Presets</h2>
           <div className="grid grid-cols-1 gap-2 max-h-56 overflow-y-auto pr-2 scrollbar-hide">
             {wastePresets.map((preset) => (
-              <button
-                key={preset.label}
-                onClick={() => setFormData(preset.data)}
-                className="group flex items-center justify-between text-left text-xs p-3 rounded-xl border border-gray-100 hover:bg-blue-50 hover:border-blue-200 transition-all bg-gray-50/50 text-gray-700 font-semibold"
-              >
-                <span>{preset.label}</span>
-                <Download size={12} className="opacity-0 group-hover:opacity-100 text-blue-500 transition-opacity" />
-              </button>
+              
+            <button
+              key={preset.label}
+              onClick={() => setFormData(preset.data)}
+              className="text-left text-xs p-3 rounded-xl border border-gray-100 hover:bg-blue-50 hover:border-blue-200 transition-all bg-gray-50/50 text-gray-700 font-semibold active:scale-95"
+            >
+              {preset.label}
+            </button>
+
             ))}
           </div>
         </div>
